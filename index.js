@@ -5,8 +5,10 @@ Student Name: Aishwarya Shrestha
 Enterprise Techs-Mobile Pltfms - MAPD 713
 Instructor: Viktor Zaytsev 
 
-Date of Submission: 10/1/2021
+Date of Submission: 10/3/2021
 Assignment: 1
+To develop Node.js http server to store, retrieve and delete information 
+about images using HTTP GET, POST and DELETE requests and JSON data format.
 */
 
 const http = require("http");
