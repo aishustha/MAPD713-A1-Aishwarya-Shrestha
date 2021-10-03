@@ -36,6 +36,8 @@ var server = http.createServer(async function (request, response) {
 
   //handle HTTP POST request with JSON Payload
   else if (request.url == "/images" && request.method == "POST") {
+    //stores in memory json payload received in POST request
+    //Return a list of all images information as a response to GET request
     const loading = [];
     for await (const chunk of request) {
       loading.push(chunk);
@@ -44,6 +46,12 @@ var server = http.createServer(async function (request, response) {
 
     Database = [...Database, data];
     response.end("Image is stored in Database.");
+  }
+
+  //Implemented method deleting of all records
+  else if (request.url == "/images" && request.method == "DELETE") {
+    Database = [];
+    response.end("Image is cleared from Database.");
   }
       
 });
