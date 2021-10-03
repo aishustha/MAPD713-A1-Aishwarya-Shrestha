@@ -33,6 +33,19 @@ var server = http.createServer(async function (request, response) {
       response.end(JSON.stringify(responsePayload));
     }
   }
+
+  //handle HTTP POST request with JSON Payload
+  else if (request.url == "/images" && request.method == "POST") {
+    const loading = [];
+    for await (const chunk of request) {
+      loading.push(chunk);
+    }
+    const data = JSON.parse(Buffer.concat(loading).toString());
+
+    Database = [...Database, data];
+    response.end("Image is stored in Database.");
+  }
+      
 });
 
 //server is listening at http://127.0.0.1:8000
